@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://husa/services/PhotoRequests/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://husa/services/PhotoRequests/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://husa/services/PhotoRequests/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetProcessingPhotoRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetProcessingPhotoRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProcessingPhotoRequestsResult" type="tns:ServiceCallResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ServiceCallResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Result" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhotoServiceResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PhotoRequestID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PhotoRequestGUID" nillable="true" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:PRType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddVirtualTour" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AssignedOn" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Assistant" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuilderName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommunityName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContactDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Directions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailPhoto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KeyAt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OnsitePersonName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScheduleDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SlideShow" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialNotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompletedBy" type="tns:PhotoRequestUser" />
+          <s:element minOccurs="1" maxOccurs="1" name="SysCompletedOn" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedBy" type="tns:PhotoRequestUser" />
+          <s:element minOccurs="1" maxOccurs="1" name="SysCreatedOn" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SysDiscriminator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifiedBy" type="tns:PhotoRequestUser" />
+          <s:element minOccurs="1" maxOccurs="1" name="SysModifiedOn" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SysOwnedBy" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SysState" nillable="true" type="tns:DataEntityState" />
+          <s:element minOccurs="1" maxOccurs="1" name="SysStatusID" nillable="true" type="tns:PhotoRequestStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="SysTimestamp" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Photographer" type="tns:PhotoRequestUser" />
+          <s:element minOccurs="1" maxOccurs="1" name="WideAngleLens" nillable="true" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Zip" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="HighResolutionUrl" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PRType">
+        <s:restriction base="s:string">
+          <s:enumeration value="CommunityPhotoRequest" />
+          <s:enumeration value="PlanPhotoRequest" />
+          <s:enumeration value="ResidentialListingPhotoRequest" />
+          <s:enumeration value="ResidentialPhotoRequest" />
+          <s:enumeration value="BxlSubdivisionPhotoRequest" />
+          <s:enumeration value="BxlListingPhotoRequest" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="PhotoRequestUser">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserGUID" type="s1:guid" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DataEntityState">
+        <s:restriction base="s:string">
+          <s:enumeration value="Active" />
+          <s:enumeration value="Locked" />
+          <s:enumeration value="Deleted" />
+          <s:enumeration value="SystemLocked" />
+          <s:enumeration value="NotInSystem" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="PhotoRequestStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Pending" />
+          <s:enumeration value="Completed" />
+          <s:enumeration value="Rejected" />
+          <s:enumeration value="Assigned" />
+          <s:enumeration value="AwaitingApproval" />
+          <s:enumeration value="PhotosRejected" />
+          <s:enumeration value="AwaitingPreApproval" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfPhotoServiceResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PhotoServiceResponse" nillable="true" type="tns:PhotoServiceResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UserDetails" type="tns:UserDetails" />
+      <s:complexType name="UserDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Companies" type="tns:ArrayOfInt" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetCompletedPhotoRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCompletedPhotoRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompletedPhotoRequestsResult" type="tns:ServiceCallResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssignedPhotoRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAssignedPhotoRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssignedPhotoRequestsResult" type="tns:ServiceCallResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAwaitingApprovalPhotoRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAwaitingApprovalPhotoRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAwaitingApprovalPhotoRequestsResult" type="tns:ServiceCallResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAwaitingPreApprovalPhotoRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAwaitingPreApprovalPhotoRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAwaitingPreApprovalPhotoRequestsResult" type="tns:ServiceCallResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingPhotoRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPendingPhotoRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingPhotoRequestsResult" type="tns:ServiceCallResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhotosRejectedPhotoRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPhotosRejectedPhotoRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPhotosRejectedPhotoRequestsResult" type="tns:ServiceCallResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRejectedPhotoRequests">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRejectedPhotoRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRejectedPhotoRequestsResult" type="tns:ServiceCallResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhotoRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="photoRequestID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPhotoRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPhotoRequestResult" type="tns:ServiceCallResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetProcessingPhotoRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProcessingPhotoRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessingPhotoRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProcessingPhotoRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProcessingPhotoRequestsUserDetails">
+    <wsdl:part name="UserDetails" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetCompletedPhotoRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompletedPhotoRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetCompletedPhotoRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompletedPhotoRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompletedPhotoRequestsUserDetails">
+    <wsdl:part name="UserDetails" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAssignedPhotoRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssignedPhotoRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetAssignedPhotoRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssignedPhotoRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssignedPhotoRequestsUserDetails">
+    <wsdl:part name="UserDetails" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAwaitingApprovalPhotoRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAwaitingApprovalPhotoRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetAwaitingApprovalPhotoRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAwaitingApprovalPhotoRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAwaitingApprovalPhotoRequestsUserDetails">
+    <wsdl:part name="UserDetails" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAwaitingPreApprovalPhotoRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAwaitingPreApprovalPhotoRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetAwaitingPreApprovalPhotoRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAwaitingPreApprovalPhotoRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAwaitingPreApprovalPhotoRequestsUserDetails">
+    <wsdl:part name="UserDetails" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingPhotoRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingPhotoRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingPhotoRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingPhotoRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingPhotoRequestsUserDetails">
+    <wsdl:part name="UserDetails" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotosRejectedPhotoRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPhotosRejectedPhotoRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotosRejectedPhotoRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPhotosRejectedPhotoRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotosRejectedPhotoRequestsUserDetails">
+    <wsdl:part name="UserDetails" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetRejectedPhotoRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRejectedPhotoRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetRejectedPhotoRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRejectedPhotoRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRejectedPhotoRequestsUserDetails">
+    <wsdl:part name="UserDetails" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotoRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPhotoRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotoRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPhotoRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPhotoRequestUserDetails">
+    <wsdl:part name="UserDetails" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:portType name="PhotoRequestServiceSoap">
+    <wsdl:operation name="GetProcessingPhotoRequests">
+      <wsdl:input message="tns:GetProcessingPhotoRequestsSoapIn" />
+      <wsdl:output message="tns:GetProcessingPhotoRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompletedPhotoRequests">
+      <wsdl:input message="tns:GetCompletedPhotoRequestsSoapIn" />
+      <wsdl:output message="tns:GetCompletedPhotoRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedPhotoRequests">
+      <wsdl:input message="tns:GetAssignedPhotoRequestsSoapIn" />
+      <wsdl:output message="tns:GetAssignedPhotoRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAwaitingApprovalPhotoRequests">
+      <wsdl:input message="tns:GetAwaitingApprovalPhotoRequestsSoapIn" />
+      <wsdl:output message="tns:GetAwaitingApprovalPhotoRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAwaitingPreApprovalPhotoRequests">
+      <wsdl:input message="tns:GetAwaitingPreApprovalPhotoRequestsSoapIn" />
+      <wsdl:output message="tns:GetAwaitingPreApprovalPhotoRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingPhotoRequests">
+      <wsdl:input message="tns:GetPendingPhotoRequestsSoapIn" />
+      <wsdl:output message="tns:GetPendingPhotoRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotosRejectedPhotoRequests">
+      <wsdl:input message="tns:GetPhotosRejectedPhotoRequestsSoapIn" />
+      <wsdl:output message="tns:GetPhotosRejectedPhotoRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectedPhotoRequests">
+      <wsdl:input message="tns:GetRejectedPhotoRequestsSoapIn" />
+      <wsdl:output message="tns:GetRejectedPhotoRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoRequest">
+      <wsdl:input message="tns:GetPhotoRequestSoapIn" />
+      <wsdl:output message="tns:GetPhotoRequestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PhotoRequestServiceSoap" type="tns:PhotoRequestServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProcessingPhotoRequests">
+      <soap:operation soapAction="http://husa/services/PhotoRequests/GetProcessingPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetProcessingPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompletedPhotoRequests">
+      <soap:operation soapAction="http://husa/services/PhotoRequests/GetCompletedPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCompletedPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedPhotoRequests">
+      <soap:operation soapAction="http://husa/services/PhotoRequests/GetAssignedPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAssignedPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAwaitingApprovalPhotoRequests">
+      <soap:operation soapAction="http://husa/services/PhotoRequests/GetAwaitingApprovalPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAwaitingApprovalPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAwaitingPreApprovalPhotoRequests">
+      <soap:operation soapAction="http://husa/services/PhotoRequests/GetAwaitingPreApprovalPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAwaitingPreApprovalPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingPhotoRequests">
+      <soap:operation soapAction="http://husa/services/PhotoRequests/GetPendingPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPendingPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotosRejectedPhotoRequests">
+      <soap:operation soapAction="http://husa/services/PhotoRequests/GetPhotosRejectedPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPhotosRejectedPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectedPhotoRequests">
+      <soap:operation soapAction="http://husa/services/PhotoRequests/GetRejectedPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRejectedPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoRequest">
+      <soap:operation soapAction="http://husa/services/PhotoRequests/GetPhotoRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPhotoRequestUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PhotoRequestServiceSoap12" type="tns:PhotoRequestServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetProcessingPhotoRequests">
+      <soap12:operation soapAction="http://husa/services/PhotoRequests/GetProcessingPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetProcessingPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompletedPhotoRequests">
+      <soap12:operation soapAction="http://husa/services/PhotoRequests/GetCompletedPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetCompletedPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssignedPhotoRequests">
+      <soap12:operation soapAction="http://husa/services/PhotoRequests/GetAssignedPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAssignedPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAwaitingApprovalPhotoRequests">
+      <soap12:operation soapAction="http://husa/services/PhotoRequests/GetAwaitingApprovalPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAwaitingApprovalPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAwaitingPreApprovalPhotoRequests">
+      <soap12:operation soapAction="http://husa/services/PhotoRequests/GetAwaitingPreApprovalPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAwaitingPreApprovalPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingPhotoRequests">
+      <soap12:operation soapAction="http://husa/services/PhotoRequests/GetPendingPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPendingPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotosRejectedPhotoRequests">
+      <soap12:operation soapAction="http://husa/services/PhotoRequests/GetPhotosRejectedPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPhotosRejectedPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRejectedPhotoRequests">
+      <soap12:operation soapAction="http://husa/services/PhotoRequests/GetRejectedPhotoRequests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRejectedPhotoRequestsUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPhotoRequest">
+      <soap12:operation soapAction="http://husa/services/PhotoRequests/GetPhotoRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetPhotoRequestUserDetails" part="UserDetails" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PhotoRequestService">
+    <wsdl:port name="PhotoRequestServiceSoap" binding="tns:PhotoRequestServiceSoap">
+      <soap:address location="http://mls.homesusa.com/library/photorequestservice/photorequest.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PhotoRequestServiceSoap12" binding="tns:PhotoRequestServiceSoap12">
+      <soap12:address location="http://mls.homesusa.com/library/photorequestservice/photorequest.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
