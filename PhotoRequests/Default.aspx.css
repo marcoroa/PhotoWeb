@@ -1,0 +1,23 @@
+﻿.cell { width: 85px; }
+.cell-medium { width: 150px; }
+.cell-large { width: 210px; }
+.cell-huge { width: 400px; }
+
+table {
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+input[type="text"] {
+    border: none;
+}
+
+table.results-table {
+    table-layout: fixed;
+    width: 100%;
+}
